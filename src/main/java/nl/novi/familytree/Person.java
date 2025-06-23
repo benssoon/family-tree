@@ -3,7 +3,7 @@ package nl.novi.familytree;
 import java.util.*;
 
 public class Person {
-    private String name;
+    private String firstName;
     private String middleName;
     private String lastName;
     private String sex;
@@ -16,15 +16,15 @@ public class Person {
 
 
     // ---------- Constructors ---------- //
-    public Person(String lastName, String name, String sex, int age) {
+    public Person(String firstName, String lastName, String sex, int age) {
+        this.firstName = firstName;
         this.lastName = lastName;
-        this.name = name;
         this.sex = sex;
         this.age = age;
     }
 
-    public Person(String name, String middleName, String lastName, String sex, int age) {
-        this.name = name;
+    public Person(String firstName, String middleName, String lastName, String sex, int age) {
+        this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.sex = sex;
@@ -33,12 +33,12 @@ public class Person {
 
     // ---------- Getters & Setters ---------- //
 
-    public String getName() {
-        return this.name;
+    public String getFirstName() {
+        return this.firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getMiddleName() {
@@ -115,9 +115,9 @@ public class Person {
 
 
     // ---------- Methods ---------- //
-    public void addParents(Person father, Person mother) {
-        mother.addChild(this);
-        father.addChild(this);
+    public void addParents(Person parent, Person otherParent) {
+        parent.addChild(this);
+        otherParent.addChild(this);
     }
 
     public void addChild(Person child) {
