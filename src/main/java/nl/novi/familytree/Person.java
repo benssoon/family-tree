@@ -144,12 +144,9 @@ public class Person {
 
     public List<Person> getGrandchildren() {
         List<Person> grandchildren = new ArrayList<>();
-        List<Person> children = this.children;
-        for (Person child : children) {
-            grandchildren.addAll(child.children);
+        for (Person child : this.children) {
+            grandchildren.addAll(child.getChildren());
         }
-
-
         return grandchildren;
     }
 
