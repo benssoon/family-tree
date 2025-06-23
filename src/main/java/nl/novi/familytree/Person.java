@@ -140,6 +140,7 @@ public class Person {
     public void addSibling(Person sibling) {
         this.siblings.add(sibling);
         sibling.getSiblings().add(this);
+        sibling.addParents(this.mother, this.father); // Ik twijfel af en toe over of ik een getter moet gebruiken terwijl ik nog in dezelfde class zit. Hoeft in principe niet, toch?
     }
 
     public List<Person> getGrandchildren() {
