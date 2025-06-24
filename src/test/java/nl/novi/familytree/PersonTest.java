@@ -5,9 +5,24 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PersonTest {
-
+    Person mom;
+    Person dad;
+    Person ben;
+    Person benBro;
+    Person benSis;
+    Person grandpa;
+    Person grandma;
+    Pet dog;
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
+        mom = new Person("Lily", "Valley", "f", 69);
+        dad = new Person("Bruce", "Wood", "m" , 69);
+        ben = new Person("Ben", "Zelinsky", "m", 33);
+        benBro = new Person("Bro", "Zelinsky", "m", 33);
+        benSis = new Person("Sis", "Zelinsky", "f", 29);
+        grandpa = new Person("Dan", "Ube", "m", 100);
+        grandma = new Person("Ori", "Chide", "f", 99);
+        dog = new Pet("Rover", 6, "Australian Shepherd");
     }
 
     @org.junit.jupiter.api.AfterEach
@@ -17,9 +32,6 @@ class PersonTest {
     @Test
     public void testThatParentsAreParentOfChild() {
         //arrange:
-        Person ben = new Person("Ben", "Zelinsky", "m", 33);
-        Person mom = new Person("Lily", "Valley", "f", 69);
-        Person dad = new Person("Bruce", "Wood", "m", 69);
 
         //act:
         mom.addChild(ben);
@@ -33,9 +45,7 @@ class PersonTest {
     @Test
     public void testThatChildIsChildOfParents() {
         // arrange
-        Person ben = new Person("Ben", "Zelinsky", "m", 33);
-        Person mom = new Person("Lily", "Valley", "f", 69);
-        Person dad = new Person("Bruce", "Wood", "m", 69);
+
 
         // act
         ben.addParents(dad, mom);
@@ -47,9 +57,7 @@ class PersonTest {
     @Test
     public void testThatMotherIsMother() {
         // arrange
-        Person ben = new Person("Ben", "Zelinsky", "m", 33);
-        Person mom = new Person("Lily", "Valley", "f", 69);
-        Person dad = new Person("Bruce", "Wood", "m", 69);
+
 
         // act
         ben.addParents(dad, mom);
@@ -61,9 +69,7 @@ class PersonTest {
     @Test
     public void testThatFatherIsFather() {
         // arrange
-        Person ben = new Person("Ben", "Zelinsky", "m", 33);
-        Person mom = new Person("Lily", "Valley", "f", 69);
-        Person dad = new Person("Bruce", "Wood", "m", 69);
+
 
         // act
         ben.addParents(dad, mom);
@@ -75,9 +81,6 @@ class PersonTest {
     @Test
     public void  testThatParentsHaveCorrectSex() {
         // arrange
-        Person ben = new Person("Ben", "Zelinsky", "m", 33);
-        Person mom = new Person("Lily", "Valley", "f", 69);
-        Person dad = new Person("Bruce", "Wood", "m", 69);
 
         // act
         ben.addParents(mom, dad);
@@ -90,8 +93,7 @@ class PersonTest {
     @Test
     public void testThatPetIsPet() {
         // arrange
-        Person ben = new Person("Ben", "Zelinsky", "m", 33);
-        Pet dog = new Pet("Rover", 6, "Australian Shepherd");
+
 
         // act
         ben.addPet(dog);
@@ -103,8 +105,7 @@ class PersonTest {
     @Test
     public void testThatSiblingIsSibling() {
         // arrange
-        Person ben = new Person("Ben", "Zelinsky", "m", 33);
-        Person benBro = new Person("Bro", "Zelinsky", "m", 33);
+
 
         // act
         ben.addSibling(benBro);
@@ -116,10 +117,7 @@ class PersonTest {
     @Test
     public void testThatSiblingHasSameParents() {
         // arrange
-        Person ben = new Person("Ben", "Zelinsky", "m", 33);
-        Person benBro = new Person("Bro", "Zelinsky", "m", 33);
-        Person mom = new Person("Lily", "Valley", "f", 69);
-        Person dad = new Person("Bruce", "Wood", "m" , 69);
+
 
         // act
         ben.addParents(mom, dad);
@@ -134,11 +132,7 @@ class PersonTest {
     @Test
     public void testThatNewChildHasSiblings() {
         // arrange
-        Person mom = new Person("Lily", "Valley", "f", 69);
-        Person dad = new Person("Bruce", "Wood", "m" , 69);
-        Person ben = new Person("Ben", "Zelinsky", "m", 33);
-        Person benBro = new Person("Bro", "Zelinsky", "m", 33);
-        Person benSis = new Person("Sis", "Zelinsky", "f", 29);
+
 
         //act
         mom.addChild(ben);
@@ -151,12 +145,8 @@ class PersonTest {
     @Test
     public void testThatGrandchildIsGrandchild() {
         // arrange
-        Person grandpa = new Person("Dan", "Ube", "m", 100);
-        Person grandma = new Person("Ori", "Chide", "f", 99);
-        Person mom = new Person("Lily", "Valley", "f", 69);
-        Person dad = new Person("Bruce", "Wood", "m" , 69);
-        Person ben = new Person("Ben", "Zelinsky", "m", 33);
-        Person benBro = new Person("Bro", "Zelinsky", "m", 33);
+
+
 
         // act
         ben.addParents(mom, dad);
