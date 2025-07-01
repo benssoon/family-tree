@@ -152,9 +152,9 @@ class PersonTest {
         ben.addParents(mom, dad);
         ben.addSibling(benBro);
         dad.addParents(grandma, grandpa);
-
+        
         // assert
-        assertSame(benBro, ben.getSiblings().getLast());
+        assertSame(grandma.getGrandchildren().getFirst(), dad.getChildren().getFirst());
     }
 
 }
